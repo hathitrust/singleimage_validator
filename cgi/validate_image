@@ -4,7 +4,8 @@ use strict;
 use warnings;
 
 BEGIN {
-    $ENV{HTFEED_CONFIG} = '/htapps/babel/feed/etc/config_singleimage.yaml';
+    $ENV{FEED_HOME} = "$ENV{SDRROOT}/feed";
+    $ENV{HTFEED_CONFIG} = "$ENV{FEED_HOME}/etc/config_singleimage.yaml";
     $ENV{DEBUG_LOCAL} = 1;
     $ENV{OVERRIDE_STOPFEED} = 1;
 }
@@ -15,8 +16,8 @@ umask 0000;
 use strict;
 use lib "$ENV{SDRROOT}/mdp-lib/Utils";
 use lib "$ENV{SDRROOT}/feed/lib";
-use lib "$ENV{SDRROOT}/feed/vendor/plack-lib/lib";
-use lib "$ENV{SDRROOT}/feed/vendor/common-lib/lib";
+use lib "$ENV{SDRROOT}/singleimage_validator/vendor/plack-lib/lib";
+use lib "$ENV{SDRROOT}/singleimage_validator/vendor/common-lib/lib";
 #use Vendors __FILE__;
 use Vendors;
 use Attribute::Handlers;
